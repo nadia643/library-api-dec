@@ -1,21 +1,35 @@
 const chai = require('chai');
+const User = require('../src/models/user.js')
 
-describe ('users', () => {
-    beforeEach((done) => {
-        User.deleteMany({}, () => {
-            done();
-        });
+describe('/users', () => {
+  beforeEach((done) => {
+    User.deleteMany({}, () => {
+      done();
     });
+  });
+  describe('Post /users', () => {
+    it('creates a new user in the database', (done) => {
+      chai.request(server)
+        .post('/users')
+        .send({
+          firstname: 'Nadia',
+          lastname: 'Amroon',
+          email: 'nadia643@gmail.com',
+          password: 'nadia123',
+        });
+        .end((error, res) => {
+            expect(error).to.equal(null);
+            expect(res.status).to.equal(201);
+            User.findById(res.body._id), (err, user) => {
+                expect(err).to.equal(null);
+                expect(user.firstName).to.equal('Nadia');
+                expect(user.lastName).to.equal('Amroon');
+                expect(user.email).to.equal('nadia643@gmail.com');
+                expect(user.password).not.to.have.property('password');
+                expect(user.password.length).to.equal(60);
+                done();
+            }
+        })
+    });
+  });
 });
-
-
-
-Write a beforeEach hook that removes all data from the database before each test
-Add a test that does the following:
-
-    Makes a POST request to your server, sending a JSON body with firstName, lastName, email and password fields
-    Asserts that the response status indicates that a new resource has been created
-    Uses the _id field from the response body to find the created User document in the database
-    Asserts that the created user has the correct firstName, lastName, email and password properties
-
-Write the code to make this test pass
