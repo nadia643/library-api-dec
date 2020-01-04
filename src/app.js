@@ -1,12 +1,10 @@
-const mongoose = require('mongoose');
+const express = require('express');
 
-mongoose.connect(
-  process.env.DATABASE_CONN,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  () => {
-    app.listen(3000);
-  }
-);
+const app = express();
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Hello World!' });
+});
+
+module.exports = app;
