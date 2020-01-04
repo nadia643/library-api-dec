@@ -2,14 +2,11 @@ const Artist = require('../models/artist');
 
 exports.create = (req, res) => {
   const artist = new Artist({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password,
+    name: req.body.name,
+    genre: req.body.genre,
   });
 
-  user.save().then(() => {
-    res.status(201).json(user);
+  artist.save().then(() => {
+    res.status(201).json(artist);
   });
 };
-

@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const Artist = require('../src/models/artist');
+const chai = require('chai'),
+  chaiHttp = require('chai-http');
+
+chai.use(chaiHttp);
 
 describe('/artists', () => {
   afterEach((done) => {
@@ -11,7 +15,7 @@ describe('/artists', () => {
   describe('POST /artists', () => {
     it('creates a new artist in the database', (done) => {
       chai.request(server)
-        .post('/artists')
+        .post('/artist')
         .send({
           name: 'Tame Impala',
           genre: 'Rock',
