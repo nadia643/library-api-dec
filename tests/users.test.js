@@ -4,7 +4,7 @@ const chai = require('chai'),
 
 chai.use(chaiHttp);
 
-describe('Users', () => {
+describe('/users', () => {
   beforeEach((done) => {
     User.deleteMany({}, () => {
       done();
