@@ -137,7 +137,7 @@ describe('with artists in the database', () => {
         });
     });
 
-    xit('returns a 404 if the artist does not exist', (done) => {
+    it('returns a 404 if the artist does not exist', (done) => {
       chai.request(server)
         .delete('/artists/12345')
         .end((err, res) => {
