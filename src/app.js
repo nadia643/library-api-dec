@@ -1,6 +1,8 @@
 const express = require('express');
 const userController = require('./controllers/user');
 const artistController = require('./controllers/artist');
+const albumController = require('./controllers/album');
+
 
 const app = express();
 app.use(express.json());
@@ -16,6 +18,7 @@ app.get('/artists', artistController.list);
 app.get('/artists/:id', artistController.find);
 app.patch('/artists/:id', artistController.update);
 app.delete('/artists/:id', artistController.delete);
+app.post('/artists/:artistId/albums', albumController.create);
 
 
 module.exports = app;
