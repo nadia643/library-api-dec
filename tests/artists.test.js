@@ -93,7 +93,7 @@ describe('with artists in the database', () => {
   });
 
   describe('PATCH /artists/:artistId', () => {
-    xit('updates artist record by id', (done) => {
+    it('updates artist record by id', (done) => {
       const artist = artists[0];
       chai.request(server)
         .patch(`/artists/${artist._id}`)
