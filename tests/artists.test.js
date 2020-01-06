@@ -67,7 +67,7 @@ describe('with artists in the database', () => {
   });
 
   describe('GET /artist/:artistId', () => {
-    xit('gets artist record by id', (done) => {
+    it('gets artist record by id', (done) => {
       const artist = artists[0];
       chai.request(server)
         .get(`/artists/${artist._id}`)

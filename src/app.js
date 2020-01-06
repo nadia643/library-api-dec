@@ -9,9 +9,10 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello World!' });
 });
 
+
 app.post('/users', userController.create);
 app.post('/artist', artistController.create);
 app.get('/artists', artistController.list);
-
+app.get('/artists/:id', artistController.find);
 
 module.exports = app;
