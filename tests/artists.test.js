@@ -108,7 +108,7 @@ describe('with artists in the database', () => {
         });
     });
 
-    xit('returns a 404 if the artist does not exist', (done) => {
+    it('returns a 404 if the artist does not exist', (done) => {
       chai.request(server)
         .patch('/artists/12345')
         .send({ genre: 'Psychedelic Rock' })
@@ -122,7 +122,7 @@ describe('with artists in the database', () => {
   });
 
   describe('DELETE /artists/:artistId', () => {
-    xit('deletes artist record by id', (done) => {
+    it('deletes artist record by id', (done) => {
       const artist = artists[0];
       chai.request(server)
         .delete(`/artists/${artist._id}`)
