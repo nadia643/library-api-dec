@@ -19,5 +19,7 @@ app.get('/artists/:id', artistController.find);
 app.patch('/artists/:id', artistController.update);
 app.delete('/artists/:id', artistController.delete);
 app.post('/artists/:id/albums', albumController.create);
+app.get('/albums', albumController.list);
+app.get('/albums/:id', albumController.find);
 
 module.exports = app;

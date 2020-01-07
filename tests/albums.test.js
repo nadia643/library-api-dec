@@ -101,7 +101,7 @@ describe('/albums', () => {
       });
     });
     describe('GET /albums', () => {
-      xit('gets all albums records', (done) => {
+      it('gets all albums records', (done) => {
         chai.request(server)
           .get('/albums/')
           .end((err, res) => {
@@ -121,7 +121,7 @@ describe('/albums', () => {
     });
 
     describe('GET /albums/:albumId', () => {
-      xit('gets an album by id', (done) => {
+      it('gets an album by id', (done) => {
         const album = albums[0];
         chai.request(server)
           .get(`/albums/${albums[0]._id}`)
@@ -134,7 +134,7 @@ describe('/albums', () => {
           });
       });
 
-      xit('returns 404 if the album does not exist', (done) => {
+      it('returns 404 if the album does not exist', (done) => {
         chai.request(server)
           .get('/albums/12345')
           .end((err, res) => {
