@@ -169,7 +169,7 @@ describe('/albums', () => {
     });
 
     describe('PATCH /albums/:albumId', () => {
-      xit('updates an album record', (done) => {
+      it('updates an album record', (done) => {
         const album = albums[1];
         chai.request(server)
           .patch(`/albums/${album._id}`)
@@ -185,7 +185,7 @@ describe('/albums', () => {
           });
       });
 
-      xit('returns a 404 if the album does not exist', (done) => {
+      it('returns a 404 if the album does not exist', (done) => {
         chai.request(server)
           .patch('/albums/12345')
           .end((err, res) => {
@@ -197,7 +197,7 @@ describe('/albums', () => {
     });
 
     describe('DELETE /albums/:albumId', () => {
-      xit('deletes an album record by id', (done) => {
+      it('deletes an album record by id', (done) => {
         const album = albums[0];
         chai.request(server)
           .delete(`/albums/${album._id}`)
